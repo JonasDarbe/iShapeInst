@@ -601,9 +601,12 @@ def pull_push_loss(cos_maps, gt_instance, index_mask, ohem_num = None, margin=0.
 
     mask = neg_index*pos_index
 
-    mask = mask.triu(1)
-
-    index = torch.nonzero(mask)
+    if list(mask.shape) != [1,1,1]:
+        mask_triu = mask.triu(1)
+    else:
+        mask_triu = mask
+    
+    index = torch.nonzero(mask_triu)
 
     neg_maps = cos_maps.unsqueeze(1).expand(b_size, inst_num, inst_num, h ,w)
 
