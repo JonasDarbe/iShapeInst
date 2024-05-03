@@ -32,9 +32,9 @@ __all__ = ["load_coco_json", "load_sem_seg", "convert_to_coco_json", "register_i
 def get_metadata():
     meta = {}
     meta["evaluator_type"] = 'coco'
-    meta["thing_dataset_id_to_contiguous_id"] = {1: 0}
-    meta["thing_classes"] = ['ishape']
-    meta["thing_colors"] = [[220, 20, 60]]
+    meta["thing_dataset_id_to_contiguous_id"] = {1: 0, 2: 1, 3: 2}
+    meta["thing_classes"] = ['solid lines', 'dashed lines', 'double lines']
+    meta["thing_colors"] = [[220, 20, 60], [255, 30, 30], [30, 30, 255]]
     return meta
 
 
@@ -508,14 +508,24 @@ def register_ishape_instances(name, metadata, json_file, image_root):
 
 #"/home/data3/data_wy/ishape_dataset/log/train/"
 _PREDEFINED_SPLITS_ADE20K_PANOPTIC = {
+    # "ishape_instance_train": (
+    #     "/mnt/e/Downloads/ishape_dataset/antenna/train/coco_format-mask_encoding=rle-instances_2017.json",
+    #     "/mnt/e/Downloads/ishape_dataset/antenna/train/image",        
+    # ),
+    # "ishape_instance_val": (
+    #     "/mnt/e/Downloads/ishape_dataset/antenna/val/coco_format-mask_encoding=rle-instances_2017.json",
+    #     "/mnt/e/Downloads/ishape_dataset/antenna/val/image",
+    # ),
     "ishape_instance_train": (
-        "/home/data1/data_wy/ishape_dataset/antenna/train/coco_format-mask_encoding=rle-instances_2017.json",
-        "/home/data1/data_wy/ishape_dataset/antenna/train/image",
+        "/mnt/e/[TRM][026][001]Road-annotation_2024-01-24_07-39-44/train.json",
+        "/mnt/e/[TRM][026][001]Road-annotation_2024-01-24_07-39-44",
     ),
     "ishape_instance_val": (
-        "/home/data1/data_wy/ishape_dataset/antenna/val/coco_format-mask_encoding=rle-instances_2017.json",
-        "/home/data1/data_wy/ishape_dataset/antenna/val/image",
+        "/mnt/e/[TRM][026][001]Road-annotation_2024-01-24_07-39-44/val.json",
+        "/mnt/e/[TRM][026][001]Road-annotation_2024-01-24_07-39-44",
     ),
+    
+    
 }
 
 
